@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: user-service
+    cloud:
+        config:
+            fail-fast: true
+            password: admin
+            uri: http://config-service:8001
+            username: user

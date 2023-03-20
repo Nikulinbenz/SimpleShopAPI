@@ -1,0 +1,53 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/accounts/**
+        - id: bill-service
+          uri: lb://bill-service
+          predicates:
+            - Path=/bills/**
+        - id: deposit-service
+          uri: lb://deposit-service
+          predicates:
+              - Path=/deposits/**
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 200000
+
+ribbon: #balans nagruzki
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
+
+#    AccountService:
+#      path: /accounts/**
+##      url: http://localhost:8081/accounts
+#      serviceId: account-service
+#      stripPrefix: false
+#
+#    billService:
+#      path: /bills/**
+##      url: http://localhost:8082/bills
+#      serviceId: bill-service
+#      stripPrefix: false
+#
+#    DepositeService:
+#      path: /deposits/**
+#      serviceId: deposit-service
+#      stripPrefix: false
+
+server:
+  port: 8989

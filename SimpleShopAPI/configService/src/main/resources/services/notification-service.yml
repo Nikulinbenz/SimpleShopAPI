@@ -1,0 +1,14 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: notification-service
+  rabbitmq:
+    port: 5672
+    host: localhost
+    username: guest
+    password: guest
+    listener:
+      direct:
+        default-requeue-rejected: true

@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: gateway-service
+    cloud:
+        config:
+            fail-fast: true
+            password: admin
+            uri: http://localhost:8001
+            username: user
