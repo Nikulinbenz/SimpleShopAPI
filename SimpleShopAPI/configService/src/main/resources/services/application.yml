@@ -2,7 +2,7 @@ logging:
   level:
     org.springframework.security: INFO
 
-hystrix: #predohranitel
+hystrix:
   command:
     default:
       execution:
